@@ -8,7 +8,7 @@ Vagarnt と Chef による仮想環境構築の自動化
  
 # 準備
 
-AWSアカウントの作成（割愛）
+le.chefにSSLの設定を記載AWSアカウントの作成（割愛）
 
 ## vagrantユーザの作成
 
@@ -34,15 +34,13 @@ AWSアカウントの作成（割愛）
 2. 左側メニューの NETWORK SECURITY で Security Group を選択
 3. Create Security Group
 4. Security Group Name と Description を入力
-4. Inboud のルールに以下を追加
+5. Inboud のルールに以下を追加してCreateをクリック
 
 |Type |Protocl|Port|Source  |
 |:----|:------|:---|:-------|
 |SSH  |TCP    |22  |Anywhere|
 |HTTP |RCP    |80  |Anywhere|
 |HTTPS|TCP    |443 |Anywhere|
-
-5. Create
 
 ## キーペアを作成
 
@@ -68,4 +66,25 @@ $ vagrant plugin install vagrant-aws
 $ vagrant plugin install vagrant-omnibus
 $ vagrant plugin install dotenv
 ```
+
+## ~/vagrant-aws/.envにAWSの認証情報を記載
+
+~/vagrant-aws/.env
+
+```
+# providerのデフォルトをAWSに変更
+VAGRANT_DEFAULT_PROVIDER="aws"
+
+# AWSの認証情報
+AWS_SSH_USERNAME="ec2-user"
+AWS_SSH_KEY="~/.ssh/vagrant.pem"
+AWS_ACCESS_KEY_ID="＜ユーザ作成時のAccess Key Id＞"
+AWS_SECRET_ACCESS_KEY="＜ユーザ作成時のSecret Access Key＞"
+AWS_KEYPAIR_NAME="vagrant"
+AWS_SECURITY_GROUP="vagrant"
+```
+
+## Vagrantfile.chefにSSLの設定を記載i
+
+
 
