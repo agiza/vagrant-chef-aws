@@ -26,8 +26,9 @@ AWSアカウントの作成（割愛）
 3. Create Security Group -> Security Group Name と Description を入力
 4. Inboud のルールに以下を追加
 
-|Type|Protocl|Port|Source|
-|SSH|TCP|22|Anywhere|
+|Type|Protocl|Port|Source  |
+|:---|:------|:---|:-------|
+|SSH |TCP    |22  |Anywhere|
 
 
 ## Security Group の作成
