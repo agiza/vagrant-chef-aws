@@ -8,6 +8,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "dummy"
   config.vm.box_url = "https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box"
+  config.chef_zero.chef_repo_path = "."
 
   config.vm.provider :aws do |provider, override|
     provider.access_key_id          = ENV['AWS_ACCESS_KEY_ID']
